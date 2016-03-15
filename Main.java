@@ -16,16 +16,17 @@ public class Main {
       if(in.length == 1)
         break;
 
-      List<Double> adMonths = new ArrayList<Double>(); //TODO use %.2f strings
-      int    nMonths  = Integer.valueOf(in[3]);
+      List<Double> adMonths = new ArrayList<Double>();
+      int          nMonths  = Integer.valueOf(in[3]);
 
       for(int i=0; i<3; i++) {
         adMonths.add(Double.valueOf(in[i]));
       }
       while(nMonths > adMonths.size()) {
-        adMonths.add(adMonths.get(adMonths.size()-3)*
-                     adMonths.get(adMonths.size()-2)/
-                     adMonths.get(adMonths.size()-1));
+        double a = adMonths.get(adMonths.size()-3);
+        double b = adMonths.get(adMonths.size()-2);
+        double c = adMonths.get(adMonths.size()-1);
+        adMonths.add(Math.round(100*a*b/c)/100.);
       }
       System.out.printf("Month %d cost: $%,.2f\n",
                          nMonths, adMonths.get(nMonths-1));
