@@ -16,7 +16,7 @@ public class Main {
       if(in.length == 1)
         break;
 
-      List<Double> adMonths = new ArrayList<Double>();
+      List<Double> adMonths = new ArrayList<Double>(); //TODO use %.2f strings
       int    nMonths  = Integer.valueOf(in[3]);
 
       for(int i=0; i<3; i++) {
@@ -27,7 +27,7 @@ public class Main {
                      adMonths.get(adMonths.size()-2)/
                      adMonths.get(adMonths.size()-1));
       }
-      System.out.printf("Month %d cost: $%.2f\n",
+      System.out.printf("Month %d cost: $%,.2f\n",
                          nMonths, adMonths.get(nMonths-1));
     }
 
